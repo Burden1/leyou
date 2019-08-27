@@ -1,0 +1,50 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+zuul:
+  prefix: /api # 添加路由前缀
+  routes:
+    order-service: /order/**
+    auth-service: /auth/**
+    user-service: /user/**
+    item-service: /item/** # 将商品微服务映射到/item/**
+    search-service: /search/** # 将搜索微服务映射到/search/**
+    upload-service:
+      path: /upload/**
+      serviceId: upload-service #自定义路由，因为映射之后少了一个upload
+      strip-prefix: false
+  add-host-header: true
+  sensitive-headers:
+
+ly:
+  jwt:
+    pubKeyPath: C:\Users\Administrator\Desktop\1\rsa.pub # 公钥地址
+    cookieName: LY_TOKEN
+  filter:
+    allowPaths:
+    - /api/auth
+    - /api/search
+    - /api/user/register
+    - /api/user/check
+    - /api/user/code
+    - /api/item
+#hystrix的超时时间
+hystrix:
+    command:
+        default:
+            execution:
+              timeout:
+                enabled: true
+              isolation:
+                    thread:
+                        timeoutInMilliseconds: 60000
+#ribbon的超时时间
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
