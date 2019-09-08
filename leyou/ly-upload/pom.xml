@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.leyou.common</groupId>
-    <artifactId>ly-uoload</artifactId>
+    <artifactId>ly-upload</artifactId>
     <!--引依赖-->
 
     <dependencies>

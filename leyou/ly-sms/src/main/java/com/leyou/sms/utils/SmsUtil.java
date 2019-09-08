@@ -18,6 +18,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 发送消息
+ */
 @Slf4j
 @Component
 @EnableConfigurationProperties(SmsProperties.class)

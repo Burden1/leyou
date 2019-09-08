@@ -66,6 +66,7 @@ public class SearchService {
         if (CollectionUtils.isEmpty(categories)) {
             throw new LyException(ExceptionEnum.CATEGORRY_NOT_FOND);
         }
+        //查询到商品分类的名字
         List<String> names = categories.stream().map(Category::getName).collect(Collectors.toList());
         if (CollectionUtils.isEmpty(names)) {
             throw new LyException(ExceptionEnum.CATEGORRY_NOT_FOND);
@@ -158,10 +159,10 @@ public class SearchService {
         goods.setCid3(spu.getCid3());
         goods.setCreateTime(spu.getCreateTime());
         goods.setId(spu.getId());
-        goods.setAll(all);
-        goods.setPrice(pricesSet);//
-        goods.setSkus(JsonUtils.serialize(skus));//
-        goods.setSpecs(specs);//
+        goods.setAll(all);//TODO
+        goods.setPrice(pricesSet);//TODO
+        goods.setSkus(JsonUtils.serialize(skus));//TODO
+        goods.setSpecs(specs);//TODO
 
         goods.setSubTitle(spu.getSubTitle());
 
@@ -270,7 +271,7 @@ public class SearchService {
         Map<String,String> map = request.getFilter();
         for (Map.Entry<String,String > entry : map.entrySet()){
             String key = entry.getKey();
-            //处理key:即key值部署分类也不是品牌 即规格参数
+            //处理key:即key值不是分类也不是品牌 即规格参数
             if (!"cid3".equals(key) && !"brandId".equals(key)){
                 key = "specs."+key+".keyword";
             }
@@ -344,7 +345,7 @@ public class SearchService {
      */
     private List<Category> parseCategoryAgg(LongTerms terms) {
         try {
-            //取到品牌的ids
+            //取到ids
             List<Long> ids = terms.getBuckets().stream().map(b -> b.getKeyAsNumber().longValue()).collect(Collectors.toList());
             //根据ids查询分类
             List<Category> categories = categoryClient.queryCategoryByIds(ids);

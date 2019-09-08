@@ -48,7 +48,7 @@ public class AuthFilter extends ZuulFilter {
         String path = request.getRequestURI();
         // 是否允许放行
         boolean isAllowPath = isAllowPath(path);
-        // 如果应该放行, 就不应该再过滤
+        // 如果是应该放行, 就不应该再过滤
         return !isAllowPath;
     }
 
@@ -74,13 +74,14 @@ public class AuthFilter extends ZuulFilter {
         String token = CookieUtils.getCookieValue(request, prop.getCookieName());
         try {
             UserInfo info = JwtUtils.getInfoFromToken(token, prop.getPublicKey());
+            // 校验权限 ：管理者还是用户
+
         } catch (Exception e) {
             // token解析失败, 未登录, 拦截
             ctx.setSendZuulResponse(false);
             // 返回状态码
             ctx.setResponseStatusCode(403);
         }
-        // 校验权限
         return null;
     }
 }

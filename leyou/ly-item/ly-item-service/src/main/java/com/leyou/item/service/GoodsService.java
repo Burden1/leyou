@@ -68,7 +68,7 @@ public class GoodsService {
         if (saleable != null) {
             criteria.andEqualTo("saleable", saleable);
         }
-        //3.默认排序
+        //3.默认排序：按照时间顺序
         example.setOrderByClause("last_update_time DESC");
         //4.查询
         List<Spu> spus = spuMapper.selectByExample(example);

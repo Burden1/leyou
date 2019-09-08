@@ -7,6 +7,7 @@ import com.leyou.common.exception.LyException;
 import com.leyou.common.pojo.UserInfo;
 import com.leyou.common.utils.CookieUtils;
 import com.leyou.common.utils.JwtUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -60,6 +61,10 @@ public class AuthController {
     public ResponseEntity<UserInfo> verify(@CookieValue(value = "LY_TOKEN", required = false) String token, HttpServletRequest request,
             HttpServletResponse response) {
         try {
+            //没有token  未登录
+            if(StringUtils.isBlank(token)){
+                throw new LyException(ExceptionEnum.UN_AUTHORIZE);
+            }
             // 解析token
             UserInfo info = JwtUtils.getInfoFromToken(token, prop.getPublicKey());
             // 刷新token, 重新生成token,因为页面默认30分钟就重新登录

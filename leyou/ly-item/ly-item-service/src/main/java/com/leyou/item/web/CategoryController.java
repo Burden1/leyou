@@ -18,7 +18,9 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    //通过pid 查询商品分类信息
+    /*
+     通过pid 查询商品分类信息
+     */
     @GetMapping("list")
     public ResponseEntity<List<Category>> queryCategoryItemByPid(@RequestParam("pid")Long pid){
         //查询成功返回201

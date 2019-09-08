@@ -20,6 +20,7 @@
         <module name="ly-search" />
         <module name="ly-sms" />
         <module name="ly-uoload" />
+        <module name="ly-upload" />
         <module name="ly-user-interface" />
         <module name="ly-user-service" />
       </profile>
@@ -42,6 +43,7 @@
       <module name="ly-search" target="1.8" />
       <module name="ly-sms" target="1.8" />
       <module name="ly-uoload" target="1.8" />
+      <module name="ly-upload" target="1.8" />
       <module name="ly-user" target="1.8" />
       <module name="ly-user-interface" target="1.8" />
       <module name="ly-user-service" target="1.8" />

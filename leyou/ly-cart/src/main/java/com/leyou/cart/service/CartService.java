@@ -28,7 +28,9 @@ public class CartService {
     public void addCart(Cart cart) {
         // 获取登录用户
         UserInfo user = UserInterceptor.getUser();
+        //用户id
         String key = KEY_PREFIX + user.getId();
+        //购物车id
         String hashKey = cart.getSkuId().toString();
         // 原来的数量
         Integer num = cart.getNum();
@@ -57,6 +59,9 @@ public class CartService {
             throw new LyException(ExceptionEnum.CART_NOT_FOUND);
         }
         BoundHashOperations<String, Object, Object> operations = redisTemplate.boundHashOps(key);
+        //Map(String,Map<String,String>)
+        //第一层key是用户id 第二层key是购物车id值是购物车数据
+        //所以values是购物车对象
         List<Object> values = operations.values();
         List<Cart> carts = values.stream()
                 .map(o -> JsonUtils.parse(o.toString(), Cart.class))

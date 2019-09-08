@@ -64,7 +64,10 @@ public class PageService {
         return model;
     }
 
-
+    /**
+     * 实现页面静态化
+     * @param spuId
+     */
     public void createHtml(Long spuId){
         //1.上下文
         Context context = new Context();

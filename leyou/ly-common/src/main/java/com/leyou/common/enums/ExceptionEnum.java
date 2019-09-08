@@ -14,7 +14,7 @@ public enum ExceptionEnum {
     BRAND_NOT_FOUND(404,"未找到该品牌" ),
     GROUP_NOT_FOND(404,"商品组查询为空"),
     GOODS_NOT_FOND(404,"商品未查到" ),
-    BRANG_SAVE_ERROR(500,"品牌保存失败"),
+    BRAND_SAVE_ERROR(500,"品牌保存失败"),
     FILE_UPLOAD_ERROR(500,"文件上传失败"),
     PARAMS_CANNOT_BE_FOND(404,"商品规格参数位找到"),
     GOODS_SAVE_ERROR(500,"商品保存失败" ),
@@ -39,7 +39,9 @@ public enum ExceptionEnum {
     INVALID_ORDER_PARAM(400,"无效的订单参数"),
     UPDATE_ORDER_STATUS_ERROR(500,"更新订单状态失败"),
     WX_PAY_ORDER_FAIL(500,"微信支付失败"),
-    INVALID_SIGN_ERROR(500,"无效的签名");
+    INVALID_SIGN_ERROR(500,"无效的签名")
+
+    ;
     private int code;
     private String msg;
 

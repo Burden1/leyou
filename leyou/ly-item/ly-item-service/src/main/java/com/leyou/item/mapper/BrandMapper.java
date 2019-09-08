@@ -18,6 +18,11 @@ public interface BrandMapper extends BaseMapper<Brand>{
     @Insert("INSERT INTO tb_category_brand (category_id, brand_id) VALUES (#{cid},#{bid})")
     int insertCategoryBrand(@Param("cid") Long cid, @Param("bid") Long bid);
 
+    /**
+     * 双表关联 关联中间表
+     * @param cid
+     * @return
+     */
     @Select("Select b.* from tb_category_brand cb Inner join tb_brand b on b.id=cb.brand_id where cb.category_id=#{cid}")
     List<Brand> queryByCategoryId(@Param("cid") Long cid);
 }

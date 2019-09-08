@@ -115,7 +115,7 @@ public class OrderService {
         order.setTotalPay(totalPay);
         //实付金额=总金额+邮费-优惠
         order.setActualPay(totalPay + order.getPostFee() - 0);
-        // 把order写入数据库
+        // 1.新增订单
         int count = orderMapper.insertSelective(order);
         if (count != 1) {
             log.error("[创建订单] 创建订单失败, orderId:{}", orderId);

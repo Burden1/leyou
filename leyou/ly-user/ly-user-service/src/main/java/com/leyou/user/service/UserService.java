@@ -52,7 +52,6 @@ public class UserService {
         //3.返回
         return userMapper.selectCount(record) == 0;
     }
-
     /**
      * 2.生成短信验证码
      * @param phone

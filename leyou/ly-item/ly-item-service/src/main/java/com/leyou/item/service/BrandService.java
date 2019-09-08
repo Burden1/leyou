@@ -31,10 +31,13 @@ public class BrandService {
             PageHelper.startPage(page, rows);
             // 过滤
             Example example = new Example(Brand.class);
+            //判断搜索条件不为空：按照名字和首字母搜索
+        //select * from tb_brand where name like "%key%" or letter='key' order by id desc
             if (!StringUtils.isNullOrEmpty(key)) {
                 example.createCriteria().andLike("name", "%" + key + "%")
                         .orEqualTo("letter", key);
             }
+            //排序不为空，默认降序
             if (!StringUtils.isNullOrEmpty(sortBy)) {
                 // 排序
                 String orderByClause = sortBy + (desc ? " DESC" : " ASC");
@@ -56,13 +59,14 @@ public class BrandService {
         int count = brandMapper.insert(brand);
         //2.判断count 是否为1 ，为1 增加 不为1抛出异常
         if(count !=1){
-            throw new LyException(ExceptionEnum.BRANG_SAVE_ERROR);
+            throw new LyException(ExceptionEnum.BRAND_SAVE_ERROR);
         }
         //新增中间表 sql：insert into tb_category_brand values(1,2)
+        //查询品牌id是否对应分类id 不对应则保存失败
         for (Long cid :cids){
              count = brandMapper.insertCategoryBrand(cid, brand.getId());
             if(count != 1){
-                throw new LyException(ExceptionEnum.BRANG_SAVE_ERROR);
+                throw new LyException(ExceptionEnum.BRAND_SAVE_ERROR);
             }
         }
     }

@@ -17,7 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/ly-registry/ly-registry.iml" filepath="$PROJECT_DIR$/ly-registry/ly-registry.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-search/ly-search.iml" filepath="$PROJECT_DIR$/ly-search/ly-search.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-sms/ly-sms.iml" filepath="$PROJECT_DIR$/ly-sms/ly-sms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ly-uoload/ly-uoload.iml" filepath="$PROJECT_DIR$/ly-uoload/ly-uoload.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-upload/ly-upload.iml" filepath="$PROJECT_DIR$/ly-upload/ly-upload.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-user/ly-user.iml" filepath="$PROJECT_DIR$/ly-user/ly-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-user/ly-user-interface/ly-user-interface.iml" filepath="$PROJECT_DIR$/ly-user/ly-user-interface/ly-user-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-user/ly-user-service/ly-user-service.iml" filepath="$PROJECT_DIR$/ly-user/ly-user-service/ly-user-service.iml" />
