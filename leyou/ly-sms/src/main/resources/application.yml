@@ -13,7 +13,7 @@ spring:
 #自定义配置
 ly:
   sms:
-    accessKeyId: LTAIQbP3vh6xAUMP  # 你自己的accessKeyId
-    accessKeySecret: MN3YL3BDEph0LF5F3Ea7S6IQUPt7lN # 你自己的AccessKeySecret
+    accessKeyId:   # 你自己的accessKeyId
+    accessKeySecret:  # 你自己的AccessKeySecret
     signName: 乐优商城 # 签名名称
     verifyCodeTemplate: SMS_172741809 # 模板名称
